@@ -1,10 +1,12 @@
 ﻿using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using PhotosDemo.Repository.Repository;
 using PhotosDemo.Services;
+using ProductsDemo.Data.EntityFramework;
 using ProductsDemo.Models.Models;
 using ProductsDemo.Repository.Repository;
 using ProductsDemo.Repository.Services;
@@ -26,6 +28,8 @@ namespace ProductsDemo
 
         public static void ConfigureServices(this IServiceCollection serviceCollection)
         {
+           
+
             serviceCollection.AddTransient<IProductRepository<Product>, ProductRepository>();
             serviceCollection.AddTransient<IProductService, ProductService>();
 
