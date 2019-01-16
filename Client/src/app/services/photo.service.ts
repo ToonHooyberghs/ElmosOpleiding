@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Photo , Photos, RootObject} from '../models/flickrphoto';
+import Photo from '../models/photo';
 import { PhotoListComponent } from '../photo-list/photo-list.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {map} from 'rxjs/operators';
@@ -22,14 +22,7 @@ export class PhotoService {
       let photos:Photo[] = [];
       for(let i=0,l=result.length;i<l;i++){
           let o = result[i];
-          let fp = new Photo();
-          fp.id = o.id;
-          fp.farm = o.farm;
-          fp.url = o.url;
-          fp.secret = o.secret;
-          fp.server = o.server;
-          fp.title = o.title;
-  
+          let fp = new Photo( o.title, o.url);  
           photos.push(fp);
       }
       return photos;
