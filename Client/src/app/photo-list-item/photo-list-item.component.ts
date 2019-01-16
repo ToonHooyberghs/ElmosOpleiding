@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import Photo from '../models/photo';
+import {DemoPhoto} from '../models/demophoto';
 
 @Component({
   selector: 'app-photo-list-item',
@@ -8,8 +8,8 @@ import Photo from '../models/photo';
 })
 export class PhotoListItemComponent implements OnInit {
 
-  @Input() photo:Photo
-  @Output() onDelete:EventEmitter<Photo>;
+  @Input() photo:DemoPhoto
+  @Output() onDelete:EventEmitter<DemoPhoto>;
     
   
 

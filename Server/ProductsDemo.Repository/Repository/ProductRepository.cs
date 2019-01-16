@@ -7,11 +7,11 @@ using ProductsDemo.Models.Models;
 
 namespace ProductsDemo.Repository.Services
 {
-    public class JsonProductRepository : IProductRepository<Product>
+    public class ProductRepository : IProductRepository<Product>
     {
         List<Product> _allItems { get; set; }
 
-        public JsonProductRepository()
+        public ProductRepository()
         {
             _allItems = JsonConvert.DeserializeObject<List<Product>>(File.ReadAllText(@"C:\Temp\ProductsDemo\ProductsDemo.Repository\Repository\allItems.json"));
         }

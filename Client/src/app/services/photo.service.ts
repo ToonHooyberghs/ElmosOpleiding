@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import Photo from '../models/photo';
+import {DemoPhoto} from '../models/demophoto';
 import { PhotoListComponent } from '../photo-list/photo-list.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {map} from 'rxjs/operators';
@@ -18,11 +18,12 @@ export class PhotoService {
 
     let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDc2NjM0MjgsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQyMDAxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDIwMDEifQ.m4HjMU8QpQ5hAn7TmQfm5UVwKRHyUV1kZT4-djN30DY';
 
-    return this.http.get<Photo[]>(searchUrl, { headers: new HttpHeaders({'Authorization': 'Bearer ' + token})}).pipe(map((result) => {
-      let photos:Photo[] = [];
+    return this.http.get<DemoPhoto[]>(searchUrl, { headers: new HttpHeaders({'Authorization': 'Bearer ' + token})}).pipe(map((result) => {
+      let photos:DemoPhoto[] = [];
       for(let i=0,l=result.length;i<l;i++){
           let o = result[i];
-          let fp = new Photo( o.title, o.url);  
+          let fp = new DemoPhoto( o.title, o.url);
+          fp.Id = o.Id;  
           photos.push(fp);
       }
       return photos;

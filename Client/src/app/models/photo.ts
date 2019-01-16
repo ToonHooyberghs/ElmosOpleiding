@@ -7,8 +7,7 @@ export default class Photo {
 
         
     }
-   
-
+       
     toUrl(){
         return this.url;
     }

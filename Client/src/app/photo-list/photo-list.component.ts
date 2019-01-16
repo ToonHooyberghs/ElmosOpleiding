@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FlickerPhoto} from '../models/flickrphoto';
+import {DemoPhoto} from '../models/demophoto';
 import { FlickrService } from '../services/flickr.service';
 import { PhotoService } from '../services/photo.service';
 
@@ -10,7 +10,7 @@ import { PhotoService } from '../services/photo.service';
 })
 export class PhotoListComponent implements OnInit {
 
-photos:FlickerPhoto[];
+photos:DemoPhoto[];
 
   constructor(private photoService: PhotoService) {
 
@@ -18,7 +18,7 @@ photos:FlickerPhoto[];
 
   searchPhotos(tag:string = "sportcar"){
     let data = this.photoService.search(tag).subscribe(
-      (response:FlickerPhoto[]) => {
+      (response:DemoPhoto[]) => {
             this.photos = response;
       }
     );
