@@ -11,26 +11,25 @@ namespace ProductsDemo.Controllers
     [Authorize]
     public class PhotosController : ControllerBase
     {
-        private readonly IPhotoService _PhotoService;
+        private readonly IPhotoService _photoService;
 
         public PhotosController(IPhotoService PhotoService)
         {
-            _PhotoService = PhotoService;
+            _photoService = PhotoService;
         }
 
         // GET: api/Photos
         [HttpGet]
         public IActionResult Get()
         {
-            //return new string[] { "value1", "value2" };
-            return Ok(_PhotoService.GetAll());
+            return Ok(_photoService.GetAll());
         }
 
         // GET: api/Photos/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var result = _PhotoService.GetById(id);
+            var result = _photoService.GetById(id);
 
             if (result == null)
             {
@@ -44,23 +43,25 @@ namespace ProductsDemo.Controllers
 
         // POST: api/Photos
         [HttpPost]
-        public IActionResult Post([FromBody] Photo Photo)
+        public IActionResult Post([FromBody] Photo photo)
         {
-            _PhotoService.Add(Photo);
+            _photoService.Add(photo);
             return Ok();
         }
 
         // PUT: api/Photos/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] Photo photo)
         {
+            _photoService.Update(id,photo);
+            return Ok();
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public ActionResult<Photo> Delete(int id)
         {
-            var result = _PhotoService.DeleteById(id);
+            var result = _photoService.DeleteById(id);
 
             if (result == null)
             {

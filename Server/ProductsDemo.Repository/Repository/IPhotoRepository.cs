@@ -12,5 +12,6 @@ namespace ProductsDemo.Repository.Repository
 
         void Add(T product);
         Photo DeleteById(int id);
+        void Update(int id, T photo);
     }
 }

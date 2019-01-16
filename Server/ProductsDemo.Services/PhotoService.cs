@@ -13,9 +13,14 @@ namespace PhotosDemo.Services
             _PhotoRepository = PhotoRepository;
         }
 
-        public void Add(Photo Photo)
+        public void Add(Photo photo)
         {
-            _PhotoRepository.Add(Photo);
+            _PhotoRepository.Add(photo);
+        }
+
+        public void Update(int id, Photo photo)
+        {
+            _PhotoRepository.Update(id,photo);
         }
 
         public Photo DeleteById(int id)

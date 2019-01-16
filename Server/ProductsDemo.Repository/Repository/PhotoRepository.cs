@@ -15,7 +15,7 @@ namespace PhotosDemo.Repository.Repository
 
         public PhotoRepository()
         {
-            _allItems = JsonConvert.DeserializeObject<List<Photo>>(File.ReadAllText(@"C:\Temp\ProductsDemo\ProductsDemo.Repository\Repository\allphotos.json"));
+            _allItems = JsonConvert.DeserializeObject<List<Photo>>(File.ReadAllText(@"C:\Tfs\ElmosOpleiding\Server\ProductsDemo.Repository\Repository\allphotos.json"));
         }
 
         public List<Photo> GetAll()
@@ -37,10 +37,21 @@ namespace PhotosDemo.Repository.Repository
 
         }
 
-        public void Add(Photo Photo)
+        public void Add(Photo photo)
         {
-            Photo.Id = _allItems.Count + 1;
-            _allItems.Add(Photo);
+            photo.Id = _allItems.Count + 1;
+            _allItems.Add(photo);
+        }
+
+        public void Update(int id, Photo photo)
+        {
+            var origPhoto = _allItems.FirstOrDefault(x => x.Id == id);
+
+            if (origPhoto != null)
+            {
+                origPhoto.Title = photo.Title;
+                origPhoto.Url = photo.Url;
+            }
         }
     }
 }

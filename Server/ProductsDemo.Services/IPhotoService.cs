@@ -9,7 +9,8 @@ namespace PhotosDemo.Services
         List<Photo> GetAll();
         Photo GetById(int id);
 
-        void Add(Photo Photo);
+        void Add(Photo photo);
         Photo DeleteById(int id);
+        void Update(int id, Photo photo);
     }
 }
