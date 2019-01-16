@@ -18,9 +18,9 @@ namespace ProductsDemo.Repository.Repository
             _context = context;
         }
 
-        public void Add(Photo Photo)
+        public void Add(Photo photo)
         {
-            _context.Photos.Add(Photo);
+            _context.Photos.Add(photo);
             _context.SaveChanges();
         }
 

@@ -31,6 +31,16 @@ photos:DemoPhoto[];
 
  addImage(title:any, url:any){
   // this.photos.push(new Photo(title.value,url.value));
+
+  let newPhoto = new DemoPhoto(title.value,url.value)
+
+  this.photoService.add(newPhoto).subscribe(
+    (response:DemoPhoto) => {
+         console.log('Added photo with id :' + response.id);
+    }
+  );
+  
+  this.photos.push(new DemoPhoto(title.value,url.value));
     
  }
 
