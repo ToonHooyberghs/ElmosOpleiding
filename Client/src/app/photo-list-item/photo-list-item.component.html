@@ -1,0 +1,7 @@
+<figure class="c-photo-list-item">
+    <img src="{{photo.toUrl()}}" title="{{photo.title}}" alt="{{photo.title}}" />
+    <figcaption>{{photo.title}}</figcaption>
+    <div class="c-photo-list-item_actions">
+      <button class="button is-danger" (click)="deletePhoto()">Delete</button>   
+    </div>
+  </figure>

@@ -1,0 +1,35 @@
+<div class="c-form">
+<fieldset>
+
+    <legend>Search</legend>
+    <div class="c-form__group">
+        <label for="search">Search</label>
+        <input #search name="search" type="text" class="c-form__control" (input)="searchPhotos($event.target.value)" />     
+      </div>
+
+  <legend>Photo details</legend>
+    <div class="c-form__group">
+      <label for="title">Title</label>
+      <input #title name="title" type="text" class="c-form__control" />     
+    </div>
+
+    <div class="c-form__group">   
+        <label for="url">Url</label>
+        <input #url name="url" type="url" class="c-form__control" />
+   </div>
+
+   <div class="c-form__actions">
+     <button class="button is-primary" (click)="addImage(title, url)">Add</button>
+   </div>
+  
+</fieldset>
+</div>
+
+<div class="c-photo-list">
+<ul>
+  <p *ngIf="photos?.length<=0">Geen foto's beschikbaar</p>
+  <li *ngFor="let p of photos" class="c-photo-list_item">
+    <app-photo-list-item [photo]="p" (onDelete)="deletePhoto($event)"></app-photo-list-item>
+  </li>
+</ul>
+</div>
