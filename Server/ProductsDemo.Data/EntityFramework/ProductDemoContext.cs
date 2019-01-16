@@ -14,9 +14,8 @@ namespace ProductsDemo.Data.EntityFramework
             
         }
 
-        public DbSet<Product> Products;
-        //public DbSet<Photo> Photos;
-        //public DbSet<Person> Persons;
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Photo> Photos { get; set; }
 
     }
 }

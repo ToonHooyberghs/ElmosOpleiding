@@ -34,7 +34,13 @@ photos:DemoPhoto[];
     
  }
 
-  deletePhoto(photo:FlickerPhoto){
+  deletePhoto(photo:DemoPhoto){
+
+    this.photoService.delete(photo).subscribe(
+      (response:DemoPhoto) => {
+           console.log('Removed photo with id :' + response.id);
+      }
+    );
     this.photos.splice(this.photos.indexOf(photo),1)
   }
 

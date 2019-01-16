@@ -28,12 +28,14 @@ namespace ProductsDemo
 
         public static void ConfigureServices(this IServiceCollection serviceCollection)
         {
-           
 
-            serviceCollection.AddTransient<IProductRepository<Product>, ProductRepository>();
+            serviceCollection.AddTransient<ProductRepository, ProductRepository>();
+            serviceCollection.AddTransient<PhotoRepository, PhotoRepository>();
+
+            serviceCollection.AddTransient<IProductRepository<Product>, ProductDbRepository>();
             serviceCollection.AddTransient<IProductService, ProductService>();
 
-            serviceCollection.AddTransient<IPhotoRepository<Photo>, PhotoRepository>();
+            serviceCollection.AddTransient<IPhotoRepository<Photo>, PhotoDbRepository>();
             serviceCollection.AddTransient<IPhotoService, PhotoService>();
         }
 

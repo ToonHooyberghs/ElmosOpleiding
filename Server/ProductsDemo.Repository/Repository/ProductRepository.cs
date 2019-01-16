@@ -13,7 +13,7 @@ namespace ProductsDemo.Repository.Services
 
         public ProductRepository()
         {
-            _allItems = JsonConvert.DeserializeObject<List<Product>>(File.ReadAllText(@"C:\Temp\ProductsDemo\ProductsDemo.Repository\Repository\allItems.json"));
+            _allItems = JsonConvert.DeserializeObject<List<Product>>(File.ReadAllText(@"C:\Tfs\ElmosOpleiding\Server\ProductsDemo.Repository\Repository\allItems.json"));
         }
 
         public List<Product> GetAll()
